@@ -1,6 +1,6 @@
 backend:
   name: github
-  name: komarovska/gatsby-starter-portfolio-cara
+  repo: komarovska/gatsby-starter-portfolio-cara
 
 media_folder: static/assets
 public_folder: assets
