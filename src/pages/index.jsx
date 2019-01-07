@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/addons.cjs'
@@ -57,13 +58,15 @@ const Footer = styled.footer`
   ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `
 
-const Index = () => (
-  <>
+const Index = ({ data }) => {
+  const { markdownRemark: post } = data;
+  return (
+    <>
     <Layout />
     <Parallax pages={5}>
       <Hero>
         <BigTitle>
-          Hello, <br /> I'm Vika.
+          Hello, <br /> I'm {post.frontmatter.title}.
         </BigTitle>
         <Subtitle>I'm creating noice web experiences for the next generation of consumer-facing companies.</Subtitle>
       </Hero>
@@ -133,7 +136,19 @@ const Index = () => (
         </Footer>
       </Contact>
     </Parallax>
-  </>
-)
+    </>
+  );
+}
 
-export default Index
+export default Index;
+
+export const aboutPageQuery = graphql`
+  query AboutPage {
+    markdownRemark {
+      html
+      frontmatter {
+        title
+      }
+    }
+  }
+`
