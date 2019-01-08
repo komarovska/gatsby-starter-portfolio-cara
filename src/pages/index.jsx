@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/addons.cjs'
+import Img from 'gatsby-image'
 
 // Components
 import Layout from '../components/Layout'
@@ -59,14 +60,14 @@ const Footer = styled.footer`
 `
 
 const Index = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { frontmatter } = data.markdownRemark
   return (
     <>
     <Layout />
     <Parallax pages={5}>
       <Hero>
         <BigTitle>
-          Hello, <br /> I'm {post.frontmatter.title}.
+          Hello, <br /> I'm {frontmatter.title}.
         </BigTitle>
         <Subtitle>I'm creating noice web experiences for the next generation of consumer-facing companies.</Subtitle>
       </Hero>
@@ -106,7 +107,7 @@ const Index = ({ data }) => {
       <About>
         <Title>About</Title>
         <AboutHero>
-          <Avatar src={avatar} alt="John Doe" />
+          <img src={frontmatter.image} alt="John Doe" />
           <AboutSub>
             The English language can not fully capture the depth and complexity of my thoughts. So I'm incorporating
             Emoji into my speech to better express myself. Winky face.
@@ -137,10 +138,10 @@ const Index = ({ data }) => {
       </Contact>
     </Parallax>
     </>
-  );
+  )
 }
 
-export default Index;
+export default Index
 
 export const aboutPageQuery = graphql`
   query AboutPage {
@@ -148,6 +149,7 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        image
       }
     }
   }
