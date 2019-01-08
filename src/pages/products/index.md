@@ -1,6 +1,6 @@
 ---
 templateKey: product-page
-title: Our Coffee
+title: WoW
 image: /assets/salem.jpg
 heading: What we offer
 description: >-
