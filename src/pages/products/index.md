@@ -1,8 +1,7 @@
 ---
-templateKey: 'product-page'
-path: /products
+templateKey: product-page
 title: Our Coffee
-image: /img/jumbotron.jpg
+image: /assets/salem.jpg
 heading: What we offer
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
@@ -72,7 +71,6 @@ testimonials:
 full_image: /img/products-full-width.jpg
 pricing:
   heading: Monthly subscriptions
-  test: 'test'
   description: >-
     We make it easy to make great coffee a part of your life. Choose one of our
     monthly subscription plans to receive great coffee at your doorstep each
@@ -102,4 +100,6 @@ pricing:
       plan: Custom
       price: '??'
       test: '1'
+  test: test
 ---
+
